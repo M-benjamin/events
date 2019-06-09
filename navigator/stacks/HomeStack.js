@@ -13,7 +13,7 @@ const HomeStack = createStackNavigator(
         headerTitle: "Home",
         headerLeft: (
           <TouchableOpacity onPress={() => navigation.toggleDrawer()}>
-            <View>
+            <View style={{ padding: 10 }}>
               <Icon name="md-menu" size={24} />
             </View>
           </TouchableOpacity>

@@ -14,10 +14,9 @@ import {
 } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
 import HomeStack from "./stacks/HomeStack";
-import SettingStack from "./stacks/SettingsStacks";
-import HomeScreen from "../screens/home/HomeScreen";
-import { Button } from "native-base";
 import { ScrollView } from "react-native-gesture-handler";
+
+import styled from "styled-components";
 
 // const AppTabNavigator = createBottomTabNavigator(
 //   {
@@ -36,20 +35,38 @@ import { ScrollView } from "react-native-gesture-handler";
 // );
 const CustomDrawer = props => (
   <SafeAreaView>
-    <View style={{ height: 150, backgroundColor: "red" }} />
+    <View
+      style={{
+        height: 100,
+        backgroundColor: "#653b01",
+        alignContent: "center",
+        justifyContent: "center"
+      }}
+    >
+      <Logo source={require("../assets/history.png")} />
+    </View>
     <ScrollView>
       <DrawerItems {...props} />
       <TouchableOpacity
         onPress={async () => {
           await AsyncStorage.clear();
-          props.navigation.navigate("AuthLoading");
+          props.navigation.navigate("Login");
         }}
       >
-        <Text>Sign out</Text>
+        <View style={{ display: "flex", flexDirection: "row", marginLeft: 10 }}>
+          <Icon name="md-log-in" style={{ fontSize: 25, marginRight: 5 }} />
+          <Text style={{ fontWeight: "bold", fontSize: 20 }}>Sign out</Text>
+        </View>
       </TouchableOpacity>
     </ScrollView>
   </SafeAreaView>
 );
+
+const Logo = styled.Image`
+  width: 100px;
+  height: 100px;
+  margin-top: 50px;
+`;
 
 const AppStackNavigator = createStackNavigator({
   AppTabNavigator: {

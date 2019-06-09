@@ -31,6 +31,7 @@ class SignUpScreen extends Component {
   render() {
     return (
       <Container>
+        <Logo source={require("../../assets/history.png")} />
         <Text style={{ fontSize: 24 }}>Register...</Text>
         <Text>Learning History</Text>
         <TextInput
@@ -94,8 +95,8 @@ const Modal = styled.View`
 `;
 
 const Logo = styled.Image`
-  width: 44px;
-  height: 44px;
+  width: 100px;
+  height: 100px;
   margin-top: 50px;
 `;
 
@@ -110,7 +111,7 @@ const Text = styled.Text`
 `;
 
 const ButtonView = styled.View`
-  background: #5263ff;
+  background: #653b01;
   width: 295px;
   height: 50px;
   justify-content: center;

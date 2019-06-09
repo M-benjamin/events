@@ -13,6 +13,11 @@ class LoginScreen extends Component {
     this.props.navigation.navigate("App");
   };
 
+  async componentDidMount() {
+    const userId = await AsyncStorage.getItem("uid");
+    this.props.navigation.navigate(userId ? "Home" : "Login");
+  }
+
   handleLogin = () => {
     console.log(this.state.email, this.state.password);
     const email = this.state.email;
@@ -39,8 +44,9 @@ class LoginScreen extends Component {
   render() {
     return (
       <Container>
+        <Logo source={require("../../assets/history.png")} />
         <Text style={{ fontSize: 24 }}>LogIn</Text>
-        <Text>Learning History</Text>
+        <Text>HistoryEvent</Text>
         <TextInput
           onChangeText={email => this.setState({ email })}
           placeholder="Email"
@@ -102,8 +108,8 @@ const Modal = styled.View`
 `;
 
 const Logo = styled.Image`
-  width: 44px;
-  height: 44px;
+  width: 100px;
+  height: 100px;
   margin-top: 50px;
 `;
 
@@ -118,7 +124,7 @@ const Text = styled.Text`
 `;
 
 const ButtonView = styled.View`
-  background: #5263ff;
+  background: #653b01;
   width: 295px;
   height: 50px;
   justify-content: center;

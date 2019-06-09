@@ -66,12 +66,14 @@ class HomeScreen extends React.Component {
         }
       });
   };
-
+  // 653b01
   render() {
     console.log("FFFFF", this.state.events);
     return (
-      <SafeAreaView>
-        <Text style={{ fontSize: 15 }}>Choose a country :</Text>
+      <SafeAreaView style={{ backgroundColor: "#653b01" }}>
+        <Text style={{ fontSize: 20, padding: 10, color: "white" }}>
+          Choose a country :
+        </Text>
         <ContainerSearch>
           <SearchInput
             placeholder="Expl: France"
@@ -120,7 +122,8 @@ export default HomeScreen;
 
 const SearchInput = styled.TextInput`
   height: 40px;
-  width: 290px;
+  width: 300px;
+  background-color: white;
   border-color: gray;
   border-radius: 10px;
   border-width: 1;
@@ -133,7 +136,7 @@ const ContainerSearch = styled.View`
 `;
 
 const ButtonSearch = styled.TouchableOpacity`
-  background-color: red;
+  background-color: blueviolet;
   border-radius: 10px;
   margin-left: 10px;
   align-content: center;
